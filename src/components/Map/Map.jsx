@@ -6,7 +6,8 @@ import Rating from '@material-ui/lab'
 import "./map.css"
 
 const Map = () => {
-  const coordinates = {lat: 29.293127, lng: -94.878584}
+  // CN Tower Co-ordinates
+  const coordinates = {lat: 43.6426, lng: -79.3871}
   
   return (
 
@@ -17,7 +18,7 @@ const Map = () => {
         bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}}
         defaultCenter={coordinates}
         center={coordinates}
-        defaultZoom={14}
+        defaultZoom={15}
         margin={[50,50,50,50]}
         >
 
