@@ -1,0 +1,65 @@
+.card {
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.location-photo {
+    border-radius: 25px;
+    width: 100%;
+    max-height: 40vh;
+    margin: .5rem 0;
+    object-fit: cover;
+}
+
+.card h2 {
+    text-align: center;
+}
+
+.card span {
+    color: rgb(119, 119, 119);
+}
+
+.card-content {
+    color: black;
+}
+
+.chip {
+    display: inline-block;
+    margin: .25rem;
+    padding: .25rem .75rem;
+    border-radius: 25px;
+    background-color: #ccc;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .25rem 0;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons a {
+    border-radius: 25px;
+    padding: 1.25rem;
+    margin: .5rem;
+    background-color: #cdffc3;
+}
+
+.buttons a:hover{
+    transition: .3s;
+    scale: 1.1;
+    background-color: #b3ddab;
+}

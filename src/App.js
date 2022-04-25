@@ -23,18 +23,17 @@ const App = () => {
     }, []);
 
     // update call every time coordinates and bounds change
-    useEffect(() => {
-        // console.log(bounds);
-        // console.log(coordinates);
-        getPlacesData(bounds).then((data) => {
-            console.log(data);
-            setPlaces(data);
-        });
-    }, [coordinates, bounds]);
+    // useEffect(() => {
+    //     // console.log(bounds);
+    //     // console.log(coordinates);
+    //     getPlacesData(bounds).then((data) => {
+    //         console.log(data);
+    //         setPlaces(data);
+    //     });
+    // }, [coordinates, bounds]);
 
     return (
         <>
-            <CssBaseline />
             <Header />
             <div id="home">
                 <div className="list">
