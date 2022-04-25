@@ -1,4 +1,5 @@
 import React from 'react'
+import "./placeDetails.css"
 
 const PlaceDetails = ({place}) => {
   return (

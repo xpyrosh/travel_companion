@@ -5,9 +5,9 @@ import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined"
 import Rating from '@material-ui/lab'
 import "./map.css"
 
-const Map = () => {
+const Map = ({setCoordinates, setBounds, coordinates}) => {
   // CN Tower Co-ordinates
-  const coordinates = {lat: 43.6426, lng: -79.3871}
+  // const coordinates = {lat: 43.6426, lng: -79.3871}
   
   return (
 
@@ -20,6 +20,14 @@ const Map = () => {
         center={coordinates}
         defaultZoom={15}
         margin={[50,50,50,50]}
+        onChange={(e) => {
+          // console.log(e)
+          setCoordinates({lat: e.center.lat, lng: e.center.lng})
+          setBounds({
+            ne: e.marginBounds.ne,
+            sw: e.marginBounds.sw,
+          })
+        }}
         >
 
       </GoogleMapReact>

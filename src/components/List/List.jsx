@@ -27,7 +27,7 @@ const List = () => {
           <span>Type</span>
           <select name="options" value={selection} onChange={(e) => setSelection(e.target.value)} >
             <option value="restaurants">Restaurants</option>
-            <option value="activities">Activities</option>
+            <option value="attractions">Attractions</option>
             <option value="hotels">Hotels</option>
           </select>
         </form>
