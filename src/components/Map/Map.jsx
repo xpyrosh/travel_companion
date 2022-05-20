@@ -1,13 +1,14 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
-import {Paper, Typography, useMediaQuery} from '@material-ui/core'
-import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined"
+import {Paper, useMediaQuery} from '@material-ui/core'
+import { MdLocationOn } from 'react-icons/md'
 import Rating from '@material-ui/lab'
+
+import defaultImg from "../../images/location.png"
 import "./map.css"
 
-const Map = ({setCoordinates, setBounds, coordinates}) => {
-  // CN Tower Co-ordinates
-  // const coordinates = {lat: 43.6426, lng: -79.3871}
+const Map = ({setCoordinates, setBounds, coordinates, places}) => {
+  const isDesktop = useMediaQuery('min-width:600px')
   
   return (
 
@@ -15,7 +16,7 @@ const Map = ({setCoordinates, setBounds, coordinates}) => {
     // Needed older React for GoogleMapReact
     <div className="mapContainer">
       <GoogleMapReact
-        bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}}
+        bootstrapURLKeys={{key: "AIzaSyBcUIOErz3qAvTw3m9VjVWATv87aivgsRI"}}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={15}
@@ -28,7 +29,25 @@ const Map = ({setCoordinates, setBounds, coordinates}) => {
           })
         }}
         >
-
+          {places?.map((place, i)=>(
+            <div
+              className="markerContainer"
+              lat={Number(place.latitude)}
+              lng={Number(place.longitude)}
+              key={i}
+            >
+              {
+                !isDesktop ? (
+                  <MdLocationOn style={{color: 'red', fontSize: '2rem'}}/>
+                ) : (
+                  <div>
+                    <p>{place.name}</p>
+                    {/* <img src={place.photo ? place.photo.images.large.url : defaultImg} alt="" /> */}
+                  </div>
+                )
+              }
+            </div>
+          ))}
       </GoogleMapReact>
     </div>
   )

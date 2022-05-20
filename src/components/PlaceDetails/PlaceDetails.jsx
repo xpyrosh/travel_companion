@@ -3,9 +3,6 @@ import "./placeDetails.css"
 
 import { MdLocationOn, MdPhone, MdRateReview } from 'react-icons/md'
 import {FaGlobeAmericas} from "react-icons/fa"
-import LocationOnIcon from '@material-ui/icons/LocationOn'
-import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
-import PhoneIcon from '@material-ui/icons/Phone'
 import Rating from '@material-ui/lab/Rating'
 
 import defaultImg from "../../images/location.png"
@@ -16,11 +13,14 @@ const PlaceDetails = ({place}) => {
       <h2>{place.name}</h2>
       <img className='location-photo' src={place.photo? place.photo.images.large.url : defaultImg} alt="Location Image" />
       <div className="card-content">
-        {place?.cuisine?.map(({name})=>(
-          <div className='chip'>
+        {place?.cuisine?.map(({name, i})=>(
+          <div className='chip' key={i}>
             {name}
           </div>
         ))}
+        {place.description && <div className="detail desc">
+          <p>{place.description}</p>
+        </div>}
         <div className='detail'>
           <p>Price</p>
           <p>{place.price_level}</p>
@@ -29,13 +29,11 @@ const PlaceDetails = ({place}) => {
           <p>Ranking</p>
           <p>{place.ranking}</p>
         </div>
-        {place?.awards?.map((award) => (
-          <div className='detail'>
-            {/* <img src={award.images.small} alt={award.display_name}/> */}
-            <EmojiEventsIcon color='disabled'/>
-            <span>{award.display_name}</span>
-          </div>
-        ))}
+        <div className='detail'>
+          <p>Open/Closed</p>
+          <p>{place.open_now_text}</p>
+        </div>
+        
         <div className="buttons">
           {place?.address && (<a href={"http://maps.google.com/?q="+place.address+" "+place.name} target="_blank">
             <MdLocationOn style={{color: '#799673', fontSize: '2.5rem'}}/>
